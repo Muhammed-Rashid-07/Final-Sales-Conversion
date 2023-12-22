@@ -1,21 +1,26 @@
-# sales-project
+# Sales Conversion Optimization Project
 
-## Overview
+## Table of Contents
 
-This is your new Kedro project, which was generated using `kedro 0.19.1`.
+## Table of Contents
 
-Take a look at the [Kedro documentation](https://docs.kedro.org) to get started.
+1. [Project Description]
+2. [Project Structure]
+3. [Necessary Installations](#necessary-installations) 🛠️
+4. [Training Pipeline](#train-pipeline) 🚂
+5. [Model Monitoring]
+6. [Streamlit Web Application]
 
-## Rules and guidelines
+## Project Description
 
-In order to get the best out of the template:
+In this project we are going to create an end to end sales conversion prediction model using kedro, mlflow, evidently, and streamlit
 
-* Don't remove any lines from the `.gitignore` file we provide
-* Make sure your results can be reproduced by following a data engineering convention
-* Don't commit data to your repository
-* Don't commit any credentials or your local configuration to your repository. Keep all your credentials and local configuration in `conf/local/`
+We use kedro as workflow orchestrator and mlflow for experiment tracking, evidently AI for monitoring and streamlit for creating web application. By using this technologies will help us to build a robust Sales Conversion prediction Model.
+
 
 ## How to install dependencies
+
+Let's start the project by installing the required libraries.
 
 Declare any dependencies in `requirements.txt` for `pip` installation.
 
@@ -33,67 +38,48 @@ You can run your Kedro project with:
 kedro run
 ```
 
-## How to test your Kedro project
-
-Have a look at the file `src/tests/test_run.py` for instructions on how to write your tests. You can run your tests as follows:
-
-```
-pytest
-```
-
-You can configure the coverage threshold in your project's `pyproject.toml` file under the `[tool.coverage.report]` section.
-
 
 ## Project dependencies
 
 To see and update the dependency requirements for your project use `requirements.txt`. You can install the project requirements with `pip install -r requirements.txt`.
 
-[Further information about project dependencies](https://docs.kedro.org/en/stable/kedro_project_setup/dependencies.html#project-specific-dependencies)
 
-## How to work with Kedro and notebooks
+### Training Dateset
 
-> Note: Using `kedro jupyter` or `kedro ipython` to run your notebook provides these variables in scope: `context`, 'session', `catalog`, and `pipelines`.
->
-> Jupyter, JupyterLab, and IPython are already included in the project requirements by default, so once you have run `pip install -r requirements.txt` you will not need to take any extra steps before you use them.
+1. ad_id:- An unique ID for each ad.
 
-### Jupyter
-To use Jupyter notebooks in your Kedro project, you need to install Jupyter:
+2. xyz_campaign_id - An ID associated with each ad campaign of XYZ company.
+
+3. fb_campaign_id - An ID associated with how Facebook tracks each campaign.
+
+4. age - Age of the person to whom the ad is shown.
+
+5. gender - Gender of the person to whim the add is shown
+
+6. interest - A code specifying the category to which the person’s interest belongs (interests are as mentioned in the person’s Facebook public profile).
+
+7. Impressions - The number of times the ad was shown.
+
+8. Clicks - Number of clicks on for that ad.
+
+9. Spent - Amount paid by company xyz to Facebook, to show that ad.
+
+10. Total conversion - Total number of people who enquired about the product after seeing the ad.
+
+11 .Approved conversion - Total number of people who bought the product after seeing the ad. <--- Target Class
+
+
+### Training Pipeline
+
+1. Data Preprocessing - the raw is will process using some encoding, droping unwanted features and feature engineering etc.
+2. Model Training -  Training the model with best result
+3. Evaluation of model - Evaluating the accuracy of the model.
+4. Monitoring - monitoring the model and data to identify,  if there is any change in model accuracy and data.
+
+### Run the Application
+
+Run the application of streamlit using this command:
 
 ```
-pip install jupyter
+streamlit run streamlit_app.py
 ```
-
-After installing Jupyter, you can start a local notebook server:
-
-```
-kedro jupyter notebook
-```
-
-### JupyterLab
-To use JupyterLab, you need to install it:
-
-```
-pip install jupyterlab
-```
-
-You can also start JupyterLab:
-
-```
-kedro jupyter lab
-```
-
-### IPython
-And if you want to run an IPython session:
-
-```
-kedro ipython
-```
-
-### How to ignore notebook output cells in `git`
-To automatically strip out all output cell contents before committing to `git`, you can use tools like [`nbstripout`](https://github.com/kynan/nbstripout). For example, you can add a hook in `.git/config` with `nbstripout --install`. This will run `nbstripout` before anything is committed to `git`.
-
-> *Note:* Your output cells will be retained locally.
-
-## Package your Kedro project
-
-[Further information about building project documentation and packaging your project](https://docs.kedro.org/en/stable/tutorial/package_a_project.html)

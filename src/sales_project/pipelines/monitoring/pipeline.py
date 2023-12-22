@@ -1,7 +1,7 @@
-"""
-This is a boilerplate pipeline 'monitoring'
-generated using Kedro 0.19.1
-"""
+# """
+# This is a boilerplate pipeline 'monitoring'
+# generated using Kedro 0.19.1
+# """
 
 from kedro.pipeline import Pipeline, pipeline,node
 from .nodes import regression_quality, data_split, model_monitoring, model_performance_test, data_drift

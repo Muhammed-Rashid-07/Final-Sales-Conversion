@@ -7,38 +7,66 @@
 raw_data:
   type: pandas.CSVDataset
   filepath: data/01_raw/data.csv
+  metadata:
+    kedro-viz:
+      layer: raw
 
 data:
   type: pandas.ParquetDataset
   filepath: data/02_intermediate/data.pq
+  metadata:
+    kedro-viz:
+      layer: intermediate
 
 X_train:
   type: pandas.ParquetDataset
   filepath: data/03_primary/X_train.pq
+  metadata:
+    kedro-viz:
+      layer: primary
 
 X_test:
   type: pandas.ParquetDataset
   filepath: data/03_primary/X_test.pq
+  metadata:
+    kedro-viz:
+      layer: primary
+
 
 y_train:  
   type: pandas.CSVDataset
   filepath: data/03_primary/y_train.csv
+  metadata:
+    kedro-viz:
+      layer: primary
 
 y_test:   
   type: pandas.CSVDataset
   filepath: data/03_primary/y_test.csv
+  metadata:
+    kedro-viz:
+      layer: primary
 
 model:
   type: pickle.PickleDataset
   filepath: data/04_models/model.pkl
+  metadata:
+    kedro-viz:
+      layer: models
 
 reference_data:
   type: pandas.CSVDataset
   filepath: data/05_monitoring/reference_data.csv
+  metadata:
+    kedro-viz:
+      layer: monitoring
 
 current_data:
   type: pandas.CSVDataset
   filepath: data/05_monitoring/current_data.csv
+  metadata:
+    kedro-viz:
+      layer: monitoring
 
 metrics:
   type: tracking.MetricsDataset

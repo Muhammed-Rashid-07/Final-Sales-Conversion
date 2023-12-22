@@ -9,7 +9,6 @@ import mlflow
 from typing_extensions import Dict
 from mlflow import MlflowClient
 import pandas as pd
-import pickle
 import numpy as np
 
 def train_model(X_train:pd.DataFrame, y_train:pd.Series):

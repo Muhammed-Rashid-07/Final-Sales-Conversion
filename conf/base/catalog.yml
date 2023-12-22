@@ -1,0 +1,71 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+
+
+raw_data:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/data.csv
+
+data:
+  type: pandas.ParquetDataset
+  filepath: data/02_intermediate/data.pq
+
+X_train:
+  type: pandas.ParquetDataset
+  filepath: data/03_primary/X_train.pq
+
+X_test:
+  type: pandas.ParquetDataset
+  filepath: data/03_primary/X_test.pq
+
+y_train:  
+  type: pandas.CSVDataset
+  filepath: data/03_primary/y_train.csv
+
+y_test:   
+  type: pandas.CSVDataset
+  filepath: data/03_primary/y_test.csv
+
+model:
+  type: pickle.PickleDataset
+  filepath: data/04_models/model.pkl
+
+reference_data:
+  type: pandas.CSVDataset
+  filepath: data/05_monitoring/reference_data.csv
+
+current_data:
+  type: pandas.CSVDataset
+  filepath: data/05_monitoring/current_data.csv
+
+metrics:
+  type: tracking.MetricsDataset
+  filepath: data/06_tracking/metrics.json
+
+sale_columns:
+  type: tracking.JSONDataset
+  filepath: data/06_tracking/sale_columns.json
+
+data_drift:
+  type: tracking.JSONDataset
+  filepath: data/06_tracking/data_drift.json
+
+model_monitoring_metrics:
+  type: tracking.JSONDataset
+  filepath: data/06_tracking/model_monitoring_metrics.json
+
+test_status:
+  type: tracking.JSONDataset
+  filepath: data/06_tracking/test_status.json
+
+regression_quality_metrics:
+  type: tracking.JSONDataset
+  filepath: data/06_tracking/regression_quality_metrics.json
+
+
+
+
+
+

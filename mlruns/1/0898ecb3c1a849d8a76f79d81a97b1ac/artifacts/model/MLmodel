@@ -1,0 +1,32 @@
+artifact_path: model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.10.13
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.3.0
+mlflow_version: 2.9.2
+model_size_bytes: 983
+model_uuid: c6b995b10b35417e8cb6c7289a0fbdea
+run_id: 0898ecb3c1a849d8a76f79d81a97b1ac
+signature:
+  inputs: '[{"type": "long", "name": "interest"}, {"type": "long", "name": "Impressions"},
+    {"type": "long", "name": "Clicks"}, {"type": "double", "name": "Spent"}, {"type":
+    "long", "name": "Total_Conversion"}, {"type": "long", "name": "Age_Group"}, {"type":
+    "long", "name": "Gender_Code"}, {"type": "integer", "name": "campaign_936"}, {"type":
+    "integer", "name": "campaign_1178"}, {"type": "long", "name": "Interaction_Imp_Clicks"},
+    {"type": "double", "name": "Spent_per_Click"}, {"type": "double", "name": "Total_Conversion_Rate"},
+    {"type": "double", "name": "Budget_Allocation_Imp"}, {"type": "double", "name":
+    "CTR"}, {"type": "double", "name": "Conversion_per_Impression"}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1,
+    1]}}]'
+  params: null
+utc_time_created: '2023-12-20 13:28:56.493395'

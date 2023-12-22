@@ -1,0 +1,29 @@
+[build-system]
+requires = [ "setuptools",]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sales_project"
+readme = "README.md"
+dynamic = [ "dependencies", "version",]
+
+[project.scripts]
+sales-project = "sales_project.__main__:main"
+
+[tool.kedro]
+package_name = "sales_project"
+project_name = "sales-project"
+kedro_init_version = "0.19.1"
+tools = "['Data Structure']"
+
+[project.entry-points."kedro.hooks"]
+
+[tool.setuptools.dynamic.dependencies]
+file = "requirements.txt"
+
+[tool.setuptools.dynamic.version]
+attr = "sales_project.__version__"
+
+[tool.setuptools.packages.find]
+where = [ "src",]
+namespaces = false

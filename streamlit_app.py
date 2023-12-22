@@ -15,7 +15,7 @@ def prediction():
         impressions = st.number_input('Impressions', min_value=0)
         clicks = st.number_input('Clicks', min_value=0)
         spent = st.number_input('Spent')
-        total_conversion = st.number_input('Total Conversion Rate')
+        total_conversion = st.number_input('Total Conversion Rate', min_value=0)
         campaign_936 = st.selectbox('Is Campaign ID 936? ', [True, False])
         campaign_1178 = st.selectbox('Is Campaign ID 1178?', [True, False])
 
@@ -56,7 +56,7 @@ def prediction():
         
         data = pd.Series([interest,impressions, clicks, spent,total_conversion, campaign_936, campaign_1178, age, gender_feat, interaction_imp_clicks, spent_per_click, total_conversion_rate, budget_allocation_imp, ctr, conversion_per_impression])
         if st.button('Predict'):
-            model = joblib.load('/Users/rashid/Sales-Conversion-Optimization/Sales-Optimization/sales-project/data/04_models/model.pkl')
+            model = joblib.load('model/model.pkl')
             print(data)
             data_reshaped = np.array(data).reshape(1, -1)
 
@@ -64,7 +64,7 @@ def prediction():
             st.success(f"Approved Conversion Rate  :{output}") 
             
     except Exception as e:
-        st.error('Please fill all the fields')
+        st.error(e)
         
         
         

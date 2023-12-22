@@ -99,13 +99,13 @@ def run_reports():
 
         
     if 'data_drift_report' in selected_reports:
-        display_report("/Users/rashid/Sales-Conversion-Optimization/Sales-Optimization/sales-project/reports/data_drift_report.html")
+        display_report("reports/data_drift_report.html")
     if 'model_performance_report' in selected_reports:
-        display_report("/Users/rashid/Sales-Conversion-Optimization/Sales-Optimization/sales-project/reports/model_monitoring_report.html")
+        display_report("reports/model_monitoring_report.html")
     if 'model_monitoring_report' in selected_reports:
-        display_report("/Users/rashid/Sales-Conversion-Optimization/Sales-Optimization/sales-project/reports/model_performance_test_report.html")
+        display_report("reports/model_performance_test_report.html")
     if 'regression_quality_report' in selected_reports:
-        display_report("/Users/rashid/Sales-Conversion-Optimization/Sales-Optimization/sales-project/reports/regression_quality_report.html")
+        display_report("reports/regression_quality_report.html")
         
 
 
